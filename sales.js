@@ -45,3 +45,12 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function calculateReceipt() {
+  var receiptSubtotal = Number(getCookie("preTax"));
+  var receiptTax = receiptSubtotal*.075;
+  var receiptTotal = asCurrency(receiptTax+receiptSubtotal);
+  document.getElementById("sub").innerHTML = asCurrency(receiptSubtotal);
+  document.getElementById("tax").innerHTML = asCurrency(receiptTax);
+  document.getElementById("tot").innerHTML = receiptTotal;
+}
